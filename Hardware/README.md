@@ -11,9 +11,22 @@
 - **Dimensions**: !TODO()
 - **Drive System**: Differential drive 
 - **Sensors**:
-  - RP-LiDAR A1 Sensor
+  - RP-LiDAR A1M8 Sensor
+  - UART adapter board: STC-A0317-R03
   - BNO055 Orientation Sensor
 - **Power**: 3.7V LiPo battery
+
+## How to setup Lidar:
+- mkdir -p ~/ros2_ws/src
+- cd ~/ros2_ws/src
+- git clone -b ros2 https://github.com/Slamtec/rplidar_ros.git
+- cd ~/ros2_ws/
+- source /opt/ros/humble/setup.bash
+- colcon build --symlink-install
+- source ./install/setup.bash
+- cd ros2_ws
+- sudo chmod 666 /dev/ttyUSB0
+- ros2 launch rplidar_ros view_rplidar_s2e_launch.py
 
 ### Adding New CAD Files
 
